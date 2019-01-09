@@ -6,7 +6,7 @@
                     <label for="name">Name</label>
                     <input type="text" required class="form-control" id="name" [(ngModel)]="newGoal.name" name="name"  #name="ngModel">
                         <!--Testing  to see if we get data-->
-                        Display {{newGoal.name}}
+                        Display: {{newGoal.name}}
                     <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
                         <p> Name is Required</p>
                  <!--double quotes indicate string interpolation where we can output a string from a property-->
