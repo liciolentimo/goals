@@ -11,7 +11,7 @@
         <div class="row" *ngIf="goal.showDescription">
         <app-goal-details  [goal]='goal' (isComplete)= 'deleteGoal($event,i)'></app-goal-details>
     </div> -->
-    <app-goal-form></app-goal-form>
+    <app-goal-form (addGoal)="addNewGoal($event)"></app-goal-form>
     
 </div>
 

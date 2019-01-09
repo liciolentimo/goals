@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,EventEmitter,Output } from '@angular/core';
 import {Goal} from '../goal';
 
 @Component({
@@ -8,10 +8,15 @@ import {Goal} from '../goal';
 })
 export class GoalFormComponent implements OnInit {
   newGoal=new Goal(0,"","",new Date());
+  @Output() addGoal=new EventEmitter<Goal>();
+    
+    submitGoal(){
+        this.addGoal.emit(this.newGoal);
+    }
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() { //lifecycle hook that runs when the component is initialized
   }
 
 }
