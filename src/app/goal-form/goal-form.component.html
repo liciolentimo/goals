@@ -1,14 +1,15 @@
 <div class="container-fluid">
         <div class="row">
-            <form #goalForm='ngForm'>
+            <form (ngSubmit)='submitGoal()' #goalForm='ngForm'>
                 <div class="form-group">
     
                     <label for="name">Name</label>
                     <input type="text" required class="form-control" id="name" [(ngModel)]="newGoal.name" name="name"  #name="ngModel">
+                        <!--Testing  to see if we get data-->
+                        Display {{newGoal.name}}
                     <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
                         <p> Name is Required</p>
-                    <!--Testing  to see if we get data-->
-                    Display {{newGoal.name}} <!--dounle quotes indicate string interpolation where we can output a string from a property-->
+                 <!--double quotes indicate string interpolation where we can output a string from a property-->
     </div>
                 </div>
                 <div class="form-group">
@@ -32,7 +33,7 @@
                 </div>
                 <!-- <form (ngSubmit)='submitGoal()' #goalForm='ngForm'></form> -->
 
-                <button type="submit" class="btn btn-success btn-lg" (ngSubmit)='submitGoal()'>Add Goal</button>
+                <button type="submit" class="btn btn-success btn-lg" >Add Goal</button>
             
             </form>
         </div>
