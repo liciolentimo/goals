@@ -62,7 +62,11 @@ toogleDetails(index){
   }
     this.http.get<ApiResponse>("https://talaikis.com/api/quotes/random/").subscribe(data=>{
       this.quote= new Quote(data.quote,data.author)
-    })
+    },
+    err=>{
+      this.quote= new Quote("Never, never, never give up.","winston churchill")
+      console.log("Error occured ")
+  })
   }
 
 }
