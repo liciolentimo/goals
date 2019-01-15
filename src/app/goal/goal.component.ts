@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import {Goal} from '../goal';
 import {Goals} from '../goals';
+import {GoalService} from '../goals/goal.service';
 
 @Component({
   selector: 'app-goal',
   templateUrl: './goal.component.html',
-  styleUrls: ['./goal.component.css']
+  styleUrls: ['./goal.component.css'],
+  providers:[GoalService], //add the providers to the component
 })
 export class GoalComponent implements OnInit {
 
-  goals = Goals;
+  goals:Goal[];
 
 //   goals = [
 //     new Goal(1,'Watch Finding Nemo','Find an online version and watch merlin find his son',new Date(2018,3,14)),
@@ -42,7 +44,9 @@ toogleDetails(index){
   this.goals[index].showDescription = !this.goals[index].showDescription;
 }
 
-  constructor() { }
+  constructor(goalService:GoalService) {
+    this.goals = goalService.getGoals()
+   }
 
   ngOnInit() {
   }
